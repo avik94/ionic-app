@@ -1,11 +1,46 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>offers</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu = "m1"></ion-menu-button>
+      <!-- <ion-button (click) = "open()">Drawer</ion-button> -->
+    </ion-buttons>
+    <ion-title>Offers List</ion-title>
+    <ion-buttons slot="end" [routerLink] = "['./', 'new-offer']">
+      <ion-button>
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>  
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
-  <p>Edit Offers</p>
-  <p>New Offers</p>
-  <p>Book a existing Offers</p>
+  <ion-grid>
+    <ion-row>
+      <ion-col size = "12" size-sm = "10" offset-sm = "1">
+        <ion-list>
+          <ion-item-sliding 
+          *ngFor = "let place of placelist" [id]="place.id"
+          #slide>
+        
+            <ion-item [routerLink] = "['./', 'offer-bookings']">
+              <ion-thumbnail slot="start">
+                <img [src]="place.imageUrl">
+              </ion-thumbnail>
+              <ion-label>{{place.name}}</ion-label>
+            </ion-item>
+        
+            <ion-item-options side="end" (click) = "test(slide)">
+              <ion-item-option color="primary" [routerLink] = "['./', 'edit-offer', place.id]">
+                <ion-icon slot="end" name="create"></ion-icon>
+                Edit
+              </ion-item-option>
+            </ion-item-options>
+            
+          </ion-item-sliding>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
 </ion-content>
