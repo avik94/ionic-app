@@ -1,44 +1,21 @@
 <ion-app>
-  <ion-menu side="start" menuId = "m1">
+  <ion-menu side="start" menuId="first" contentId="main">
     <ion-header>
-      <ion-toolbar color="default">
-        <ion-title>App Sidebar</ion-title>
+      <ion-toolbar>
+        <ion-title>Start Menu</ion-title>
       </ion-toolbar>
     </ion-header>
 
     <ion-content>
       <ion-list>
         <ion-menu-toggle>
-          <ion-item lines="none" routerLink = "/places/tabs/discover">
-            <ion-icon name = "wallet" slot="start"></ion-icon>
-            <ion-label>Discover</ion-label>
-          </ion-item>
-        </ion-menu-toggle>
-        <ion-menu-toggle>
-          <ion-item lines="none" routerLink = "/places/tabs/offers">
-            <ion-icon name = "Card" slot="start"></ion-icon>
-            <ion-label>Offer</ion-label>
-          </ion-item>
-        </ion-menu-toggle>
-        <ion-menu-toggle>
-          <ion-item lines="none" routerLink = "/booking">
-            <ion-icon name = "Card" slot="start"></ion-icon>
-            <ion-label>Booking</ion-label>
-          </ion-item>
-        </ion-menu-toggle>
-        <ion-item-divider>
-          <ion-label>
-            Secondary Item Divider
-          </ion-label>
-        </ion-item-divider>
-        <ion-menu-toggle>
-          <ion-item lines="none">
-            <ion-icon name = "exit" slot="start"></ion-icon>
-            <ion-label>Log Out</ion-label>
+          <ion-item lines="none" detail *ngFor = "let item of menus">
+            <ion-icon [name]="item.icon" slot="start"></ion-icon>
+            <ion-label>{{item.name}}</ion-label>
           </ion-item>
         </ion-menu-toggle>
       </ion-list>
     </ion-content>
   </ion-menu>
-  <ion-router-outlet main ></ion-router-outlet>
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>
