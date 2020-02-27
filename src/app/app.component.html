@@ -9,7 +9,7 @@
     <ion-content>
       <ion-list>
         <ion-menu-toggle>
-          <ion-item lines="none" detail *ngFor = "let item of menus">
+          <ion-item lines="none" detail *ngFor = "let item of menus" [routerLink] = "[item.url]">
             <ion-icon [name]="item.icon" slot="start"></ion-icon>
             <ion-label>{{item.name}}</ion-label>
           </ion-item>

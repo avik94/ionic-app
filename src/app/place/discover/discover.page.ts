@@ -16,16 +16,16 @@ export class DiscoverPage implements OnInit {
     ) { }
 
   places: Place[];
-  listOfLoadedPlace;
 
   ngOnInit() {
     this.places = this.placesService.getPlacesList();
-    this.listOfLoadedPlace = this.places.slice(1);
-    this.listOfLoadedPlace.push('');
   }
 
   openMenus() {
     this.menuCtrl.open('first');
+  }
+  segmentChanged(val) {
+    console.log(val.detail.value);
   }
 
 }

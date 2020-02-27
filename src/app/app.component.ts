@@ -19,8 +19,9 @@ export class AppComponent {
   }
 
   menus = [
-    {name: 'Discover', icon: 'wallet'},
-    {name: 'Offers', icon: 'card'}
+    {name: 'Discover', icon: 'wallet', url: 'places/tabs/discover'},
+    {name: 'Offers', icon: 'card', url: 'places/tabs/offers'},
+    {name: 'Booking', icon: 'gift', url: 'booking'}
   ];
 
   initializeApp() {
