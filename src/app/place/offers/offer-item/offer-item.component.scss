@@ -1,0 +1,17 @@
+.itemDetail{
+    display: flex;
+    align-items: center;
+    
+    .spaceItem{
+        margin-left: 5px;
+    }
+    ion-text{
+        font-size: 14px;
+    }
+}
+
+h2{
+    border: 1px solid #da3232;
+    border-radius: 5px;
+    padding: 0 5px;
+}

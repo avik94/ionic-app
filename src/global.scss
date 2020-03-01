@@ -24,3 +24,12 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.ion-padding{
+    padding: var(--ion-padding-avik);
+}
+ion-toolbar{
+    --background: var(--ion-toolbar-bakground);
+    --color: var(--ion-toolbar-text);
+    --min-height : 50px;
+}
