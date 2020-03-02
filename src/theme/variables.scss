@@ -74,6 +74,8 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+  --ion-padding-horizontal: 0 20px;
+  --ion-ios-border-radus: 10px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -226,4 +228,9 @@
   ion-title.title-large {
     --color: white;
   }
+}
+
+.ios ion-button{
+  background: grey;
+  color: var(--ion-color-success);
 }
