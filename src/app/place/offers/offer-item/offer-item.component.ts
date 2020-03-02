@@ -14,7 +14,11 @@ export class OfferItemComponent implements OnInit {
   ngOnInit() {}
 
   dateFunc() {
-    return new Date(); 
+    return new Date();
+  }
+
+  closeSlide(slide) {
+    slide.close();
   }
 
 }

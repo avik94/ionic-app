@@ -18,8 +18,4 @@ export class OffersPage implements OnInit {
     this.offerPlace = this.placeService.getPlacesList();
   }
 
-  closeSlide(slide) {
-    slide.close();
-  }
-
 }

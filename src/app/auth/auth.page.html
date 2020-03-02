@@ -1,9 +1,52 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>auth</ion-title>
+    <ion-title>{{authCheckSignIn? ' Welcome To Sign In' : 'Log in'}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <form #form = "ngForm" (ngSubmit) = "loginSubmit(form)">
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input 
+              type="email"
+              ngModel 
+              name="email"
+              autocomplete = "on"
+              autocorrect = "on"
+              #emailCtrl = "ngModel"
+              required>
+            </ion-input>
+          </ion-item>
+          <ion-item lines="none" *ngIf= "!emailCtrl.valid && emailCtrl.touched">
+            <ion-text color= "danger">Email Required *</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input 
+              type="password" 
+              ngModel 
+              name="password"
+              minlength="6"
+              #passCtrl = "ngModel"
+              required>
+            </ion-input>
+          </ion-item>
+          <ion-item lines="none" *ngIf= "!passCtrl.valid && passCtrl.touched">
+            <ion-text color= "danger">Email Required *</ion-text>
+          </ion-item>
+          <ion-button color="secondary" expand="block" fill="clear" (click) = "signInClick()">
+            {{authCheckSignIn? 'Go To Log In' : 'For New Sign In'}}
+          </ion-button>
+          <ion-button color="secondary" expand="block" type="submit" [disabled] = "!form.valid">
+            Submit
+          </ion-button>
+        </form>  
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
 </ion-content>
