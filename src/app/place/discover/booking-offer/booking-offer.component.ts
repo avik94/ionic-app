@@ -8,14 +8,13 @@ import { ModalController } from '@ionic/angular';
 })
 export class BookingOfferComponent implements OnInit {
 
-  @Input() name: string;
-  @Input() age: string;
-  @Input() phone: string;
-  @Input() reedem: string;
+  @Input() offerDetails;
 
   constructor( private modalCtrl: ModalController ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.offerDetails);
+  }
 
   modalClose() {
     this.modalCtrl.dismiss();

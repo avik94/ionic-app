@@ -4,13 +4,16 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>
-      <ion-text >{{title | titlecase}}</ion-text>
+      <ion-text >{{place?.name | titlecase}}</ion-text>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-text-center ion-padding-top">
+  <ion-text color="secondary" style="display: block;">Please Book This Place</ion-text>
   <ion-button fill = "outline" (click) = "openAction()">
     Book Now
   </ion-button>
+  <p>Tony stark</p>
+  <p>{{place?.name}}</p>
 </ion-content>

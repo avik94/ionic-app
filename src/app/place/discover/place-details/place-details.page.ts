@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ActionSheetController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { BookingOfferComponent } from '../booking-offer/booking-offer.component';
+import { Place } from '../../places.model';
 
 @Component({
   selector: 'app-place-details',
@@ -19,15 +20,14 @@ export class PlaceDetailsPage implements OnInit {
     private modalCtrl: ModalController
     ) { }
 
-  title: string;
+  place: Place;
 
   ngOnInit() {
   }
 
   ionViewWillEnter() {
     this.route.paramMap.subscribe((data) => {
-      const place = this.placeService.getPlaceById(data.get('id'));
-      this.title = place.name;
+      this.place = this.placeService.getPlaceById(data.get('id'));
     });
   }
 
@@ -37,19 +37,19 @@ export class PlaceDetailsPage implements OnInit {
       mode: 'md',
       buttons: [
         {
-          text: 'Book Place',
-          icon: 'trail-sign-outline',
+          text: 'Custom Date',
+          icon: 'calendar-outline',
           handler: () => {
-            console.log('Booked clicked');
-            this.modalOpen('booked');
+            console.log('custom clicked');
+            this.modalOpen('custom');
           }
         },
         {
-          text: 'Reedem',
-          icon: 'chatbox-outline',
+          text: 'Random Date',
+          icon: 'calendar-outline',
           handler: () => {
-            console.log('Reedem clicked');
-            this.modalOpen('reedem');
+            console.log('random clicked');
+            this.modalOpen('random');
           }
         },
         {
@@ -65,14 +65,12 @@ export class PlaceDetailsPage implements OnInit {
     actionSheet.present();
   }
 
-  async modalOpen(modalVal: 'booked' | 'reedem') {
-    if (modalVal === 'booked') {
+  async modalOpen(modalVal: 'custom' | 'random') {
+    if (modalVal === 'custom') {
       const modal = await this.modalCtrl.create({
         component: BookingOfferComponent,
         componentProps: {
-          'name': 'Douglas',
-          'phone': '123456789',
-          'age': '20'
+          offerDetails: this.place
         }
       });
       return await modal.present();

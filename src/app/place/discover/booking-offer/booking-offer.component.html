@@ -10,8 +10,60 @@
 </ion-header>
 
 <ion-content>
-  <p>{{name}}</p>
-  <p>{{age}}</p>
-  <p>{{phone}}</p>
-  <p>{{reedem}}</p>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-item> 
+          <ion-label position = "floating">First Name</ion-label>
+          <ion-input type= "text"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-item> 
+          <ion-label position = "floating">Last Name</ion-label>
+          <ion-input type= "text"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-item> 
+          <ion-label position = "floating">No of Guest</ion-label>
+          <ion-select [ngModel] placeholder="Select Member" >
+            <ion-select-option value="1">1</ion-select-option>
+            <ion-select-option value="2">2</ion-select-option>
+            <ion-select-option value="3">3</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="3" offset-sm="3">
+        <ion-item> 
+          <ion-label position = "floating">From Date</ion-label>
+          <ion-datetime 
+            display-format="DD MM YYYY" 
+            picker-format="DD MMM YYYY"
+            [min] = "offerDetails.toDate.toISOString()"
+            [max] = "offerDetails.fromDate.toISOString()"
+            ngModel
+            #fromDate = "ngModel"            
+          ></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col size-sm="3">
+        <ion-item> 
+          <ion-label position = "floating">To Date</ion-label>
+          <ion-datetime
+            display-format="DD MM YYYY" 
+            picker-format="DD MMM YYYY"
+            [min] = "fromDate.value"
+            [max] = "offerDetails.fromDate.toISOString()"  
+            ></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

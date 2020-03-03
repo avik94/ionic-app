@@ -33,3 +33,7 @@ ion-toolbar{
     --color: var(--ion-toolbar-text);
     --min-height : 50px;
 }
+
+.ion-invalid.ion-touched ion-label{
+    color: red;
+}
