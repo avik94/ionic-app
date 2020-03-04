@@ -40,7 +40,6 @@ export class PlaceDetailsPage implements OnInit {
           text: 'Custom Date',
           icon: 'calendar-outline',
           handler: () => {
-            console.log('custom clicked');
             this.modalOpen('custom');
           }
         },
@@ -48,7 +47,6 @@ export class PlaceDetailsPage implements OnInit {
           text: 'Random Date',
           icon: 'calendar-outline',
           handler: () => {
-            console.log('random clicked');
             this.modalOpen('random');
           }
         },
@@ -70,7 +68,8 @@ export class PlaceDetailsPage implements OnInit {
       const modal = await this.modalCtrl.create({
         component: BookingOfferComponent,
         componentProps: {
-          offerDetails: this.place
+          offerDetails: this.place,
+          selectType: modalVal
         }
       });
       return await modal.present();
@@ -78,7 +77,8 @@ export class PlaceDetailsPage implements OnInit {
       const modal = await this.modalCtrl.create({
         component: BookingOfferComponent,
         componentProps: {
-          'reedem': 'Please Reedem It'
+          offerDetails: this.place,
+          selectType: modalVal
         }
       });
       return await modal.present();
