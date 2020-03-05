@@ -46,8 +46,8 @@
             <ion-label position = "floating">From Date</ion-label>
             <ion-datetime 
               formControlName= "formDate"
-              display-format="DD MM YYYY" 
-              picker-format="DD MMM YYYY"
+              display-format="D-M-YYYY" 
+              picker-format="D MMM YYYY"
               [min] = "offerDetails.toDate.toISOString()"
               [max] = "offerDetails.fromDate.toISOString()"
             ></ion-datetime>
@@ -60,8 +60,8 @@
             <ion-label position = "floating">To Date</ion-label>
             <ion-datetime
               formControlName= "toDate"
-              display-format="DD MM YYYY" 
-              picker-format="DD MMM YYYY"
+              display-format="D-M-YYYY" 
+              picker-format="D MMM YYYY"
               [min] = "bookingFormSubmit.get('formDate').value || offerDetails.toDate.toISOString()"
               [max] = "offerDetails.fromDate.toISOString()"   
               ></ion-datetime>

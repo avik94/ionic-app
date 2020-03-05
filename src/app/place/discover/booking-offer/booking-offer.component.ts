@@ -27,7 +27,10 @@ export class BookingOfferComponent implements OnInit {
     if (this.selectType === 'custom') {
       return;
     } else {
-      // this.bookingFormSubmit.setValue({formDate: '2020-02-02'});
+      const randomFormDate = new Date();
+      const randomToDate = new Date(new Date().getTime() + 48 * 60 * 60 * 1000);
+      this.bookingFormSubmit.patchValue({formDate: randomFormDate.getDay() + '-' + randomFormDate.getMonth() + '-' + randomFormDate.getFullYear()});
+      this.bookingFormSubmit.patchValue({toDate: randomToDate.getDay() + '-' + randomToDate.getMonth() + '-' + randomToDate.getFullYear()});
     }
   }
 
