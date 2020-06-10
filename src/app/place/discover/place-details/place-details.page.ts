@@ -23,13 +23,13 @@ export class PlaceDetailsPage implements OnInit {
   place: Place;
 
   ngOnInit() {
-  }
-
-  ionViewWillEnter() {
     this.route.paramMap.subscribe((data) => {
       this.place = this.placeService.getPlaceById(data.get('id'));
     });
   }
+
+  // ionViewWillEnter() {
+  // }
 
   async openAction() {
     const actionSheet = await this.actionSheetCtrl.create({

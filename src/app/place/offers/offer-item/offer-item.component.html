@@ -7,15 +7,15 @@
       <h2><ion-text color="tertiary">{{item.name}}</ion-text></h2>
       <div class="itemDetail">
         <ion-icon name="calendar-outline" color="secondary" ></ion-icon>
-        <ion-text color="primary" class="spaceItem"> {{dateFunc() | date}}</ion-text>
+        <ion-text color="primary" class="spaceItem"> {{item.fromDate | date}}</ion-text>
         <span class="spaceItem">to</span>
         <ion-icon class="spaceItem" name="calendar-outline" color="secondary"></ion-icon>
-        <ion-text color="primary" class="spaceItem"> {{dateFunc() | date}}</ion-text>
+        <ion-text color="primary" class="spaceItem"> {{item.toDate | date}}</ion-text>
       </div>
     </ion-label>
   </ion-item>
 
-  <ion-item-options side="end" [routerLink]="['edit-offer']" (click) = "closeSlide(slide)">
+  <ion-item-options side="end" [routerLink]="['edit-offer', item.id]" (click) = "closeSlide(slide)">
     <ion-item-option color="secondary">
       <ion-icon slot="top" name="pencil"></ion-icon>
       Edit

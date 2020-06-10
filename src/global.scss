@@ -37,3 +37,8 @@ ion-toolbar{
 .ion-invalid.ion-touched ion-label{
     color: red;
 }
+.loadingSpinner{
+    --background: green;
+    --spinner-color:steelblue;
+    color: #fff;
+}

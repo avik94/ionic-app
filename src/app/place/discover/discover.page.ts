@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
-import { PlaceService } from '../Places.service';
 import { Place } from '../places.model';
+import { PlaceService } from '../Places.service';
 
 @Component({
   selector: 'app-discover',
@@ -12,20 +12,31 @@ export class DiscoverPage implements OnInit {
 
   constructor(
     private menuCtrl: MenuController,
-    private placesService: PlaceService
+    private placeSerive: PlaceService
     ) { }
 
   places: Place[];
+  releventPlaces;
+  loadedPlace;
 
   ngOnInit() {
-    this.places = this.placesService.getPlacesList();
+    console.log('Discover Page ngOnInit');
+    this.loadedPlace = this.placeSerive.getPlacesList().slice();
+    this.releventPlaces = this.loadedPlace;
   }
 
-  openMenus() {
-    this.menuCtrl.open('first');
-  }
-  segmentChanged(val) {
-    console.log(val.detail.value);
+  // openMenus() {
+  //   this.menuCtrl.open('first');
+  // }
+  segmentChanged(event: CustomEvent) {
+    console.log(event.detail.value);
+    if (event.detail.value === 'allPlaces') {
+      this.releventPlaces = this.loadedPlace;
+    } else {
+      this.releventPlaces = this.loadedPlace.filter((el) => {
+        return el.userId !== 'abc';
+      });
+    }
   }
 
 }

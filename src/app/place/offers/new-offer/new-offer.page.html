@@ -22,7 +22,7 @@
             <ion-input type= "text" formControlName= "title"></ion-input>
           </ion-item>
           <ion-item *ngIf="!newOfferForm.get('title').valid && newOfferForm.get('title').touched" lines="none">
-            <p> Title Required</p>
+            <p> * Title Required</p>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -33,7 +33,7 @@
             <ion-textarea rows= "3" formControlName= "description"></ion-textarea>
           </ion-item>
           <ion-item *ngIf="!newOfferForm.get('description').valid && newOfferForm.get('description').touched" lines="none">
-            <p> Title Required</p>
+            <p> * Description Required</p>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -44,7 +44,7 @@
             <ion-input type= "text" formControlName= "price"></ion-input>
           </ion-item>
           <ion-item *ngIf="!newOfferForm.get('price').valid && newOfferForm.get('price').touched" lines="none">
-            <p> Title Required</p>
+            <p> * Price Required</p>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -55,12 +55,12 @@
             <ion-datetime 
               displayFormat="DD-MM-YYYY" 
               pickerFormat="DD MMMM YYYY" 
-              mode="ios"
-              formControlName= "formDate">
+              mode="md"
+              formControlName= "fromDate">
             </ion-datetime>
           </ion-item>
-          <ion-item *ngIf="!newOfferForm.get('formDate').valid && newOfferForm.get('formDate').touched" lines="none">
-            <p class = "text-center"> Title Required</p>
+          <ion-item *ngIf="!newOfferForm.get('fromDate').valid && newOfferForm.get('fromDate').touched" lines="none">
+            <p class = "text-center"> * From Date Required</p>
           </ion-item>
         </ion-col>
         <ion-col size-sm="3">
@@ -69,12 +69,12 @@
             <ion-datetime 
               displayFormat="DD-MM-YYYY"
               pickerFormat="DD MMMM YYYY" 
-              mode="ios"
+              mode="md"
               formControlName= "toDate">
             </ion-datetime>
           </ion-item>
           <ion-item *ngIf="!newOfferForm.get('toDate').valid && newOfferForm.get('toDate').touched" lines="none">
-            <p> Title Required</p>
+            <p> * To Date Required</p>
           </ion-item>
         </ion-col>
       </ion-row>
